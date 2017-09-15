@@ -11,4 +11,5 @@ import UIKit
 class CollectionMovieCell: UICollectionViewCell {
     
     @IBOutlet weak var movieCover: UIImageView!
+
 }

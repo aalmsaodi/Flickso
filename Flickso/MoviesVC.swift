@@ -10,107 +10,40 @@ import UIKit
 import AFNetworking
 import SVProgressHUD
 
+
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var networkError: UITextField!
     
     var movies: [[String:Any]] = [[String:Any]]()
     var filteredMovies: [[String:Any]] = [[String:Any]]()
-    
     var endPoint:String = ""
     
     let searchController = UISearchController(searchResultsController: nil)
-    let segment: UISegmentedControl = UISegmentedControl(items: ["Grid View", "List View"])
-
+    let segmentViewStyle: UISegmentedControl = UISegmentedControl(items: ["Grid View", "List View"])
+    
     let refreshControlTable = UIRefreshControl()
     let refreshControlCollection = UIRefreshControl()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        configureSearchBar()
+        configureSegementView()
+        configurePullToReferch()
+        configureTopBarApperance()
         
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.barTintColor = UIColor(red: 0x33/0xFF, green:0x35/0xFF, blue: 0x33/0xFF, alpha: 1)
+        assignDelegets()
 
-        
-        UIBarButtonItem.appearance().tintColor = UIColor.white
-        
-        segment.sizeToFit()
-        segment.tintColor = UIColor(colorLiteralRed: 0xF5/0xFF, green: 0xCB/0xFF, blue: 0x5C/0xFF, alpha: 1)
-        segment.backgroundColor = UIColor(colorLiteralRed: 0x33/0xFF, green: 0x35/0xFF, blue: 0x33/0xFF, alpha: 1)
-
-        segment.selectedSegmentIndex = 0;
-
-        segment.addTarget(self, action: #selector(viewStyle), for: UIControlEvents.valueChanged)
-        
         showSegment()
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false;
-        
-        refreshControlTable.addTarget(self, action: #selector(fetchMovies), for: UIControlEvents.valueChanged)
-        refreshControlCollection.addTarget(self, action: #selector(fetchMovies), for: UIControlEvents.valueChanged)
-
-        
-        tableView.insertSubview(refreshControlTable, at: 0)
-        collectionView.insertSubview(refreshControlCollection, at: 0)
-        
-        collectionView.alwaysBounceVertical = true
-        
-        UIApplication.shared.statusBarStyle = .lightContent
-        
         fetchMovies()
     }
     
-    func showSearchBar() {
-//        tableView.tableHeaderView = searchController.searchBar
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(showSegment))
-        
-        self.navigationItem.titleView = searchController.searchBar
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu-style"), style: .plain, target: self, action: #selector(showSegment))
-    }
-    
-    func showSegment() {
-//        tableView.tableHeaderView = segment
-        self.navigationItem.titleView = segment
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
-    }
-    
-    func viewStyle() {
-        
-        if segment.selectedSegmentIndex == 1 { //list view selected
-            
-            tableView.isHidden = false
-            
-        } else { //grid view selected
-         
-            tableView.isHidden = true
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-
-// MARK: - Searchbar and Filtering
+// MARK: - Searchbar and Filtering ****************************************************************
     func updateSearchResults(for searchController: UISearchController) {
         
         filterContentForSearchText(searchText: searchController.searchBar.text!)
@@ -126,13 +59,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 filteredMovies.append(movie)
             }
-        
         }
         
         tableView.reloadData()
+        collectionView.reloadData()
     }
     
-// MARK: - Fetching Movies
+    
+// MARK: - Fetching Movies ************************************************************************
     func fetchMovies() {
         
         SVProgressHUD.show()
@@ -176,7 +110,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     
-// MARK: - Collection Views
+// MARK: - Collection Views ***********************************************************************
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != ""  {
@@ -203,7 +137,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             
             movie = movies[indexPath.row]
         }
-                
+        
         var posterUrl: URL!
         if let path = movie["poster_path"] as? String {
             let baseUrl = "http://image.tmdb.org/t/p/w500/"
@@ -238,7 +172,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-// MARK: - Table Views
+    
+// MARK: - Table Views ***************************************************************************
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -273,7 +208,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         var posterUrl: URL!
         if let path = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500/"
+            let baseUrl = "http://image.tmdb.org/t/p/w500"
             
             posterUrl = URL(string: baseUrl + path)!
             let imageRequest = URLRequest(url: posterUrl)
@@ -308,7 +243,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-// MARK: - Segue
+    
+// MARK: - Segue *******************************************************************************
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let movie:[String:Any]!
@@ -325,7 +261,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             
             let cell = sender as! UICollectionViewCell
             indexPath = collectionView.indexPath(for: cell)
-            
         }
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -340,8 +275,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let detailsViewController = segue.destination as! DetailsViewController
         
-        detailsViewController.movie = movie 
-        
+        detailsViewController.movie = movie
     }
-
 }

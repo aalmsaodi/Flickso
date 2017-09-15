@@ -15,31 +15,22 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var infoView: UIView!
-    
     var movie:[String:Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        titleLabel.text = movie["title"] as? String
-        
-        detailsLabel.text = movie["overview"] as? String
         
         detailsLabel.sizeToFit()
-                
-        SVProgressHUD.dismiss()
         
-        var posterUrl: URL!
+        titleLabel.text = movie["title"] as? String
+        detailsLabel.text = movie["overview"] as? String
+        
         if let path = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500/"
-            posterUrl = URL(string: baseUrl + path)!
+            let baseUrl = "http://image.tmdb.org/t/p/w500"
+            let posterUrl = URL(string: baseUrl + path)!
+            movieImage.setImageWith(posterUrl)
         }
         
-        movieImage.setImageWith(posterUrl)
+        SVProgressHUD.dismiss()
     }
-
-
 }
