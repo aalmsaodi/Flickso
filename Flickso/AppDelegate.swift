@@ -15,7 +15,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let nowPlayingNavigationController = storyboard.instantiateViewController(withIdentifier: "movieNavigationController") as! UINavigationController
+        let nowPlayingViewController = nowPlayingNavigationController.topViewController as! MoviesViewController
+        nowPlayingViewController.endPoint = "now_playing"
+        nowPlayingNavigationController.tabBarItem.title = "Now Playing"
+        nowPlayingNavigationController.tabBarItem.image = UIImage(named: "now-playing")
+        
+        let topRatedNavigationController = storyboard.instantiateViewController(withIdentifier: "movieNavigationController") as! UINavigationController
+        let topRatedViewController = topRatedNavigationController.topViewController as! MoviesViewController
+        topRatedViewController.endPoint = "top_rated"
+        topRatedNavigationController.tabBarItem.title = "Top Rated"
+        topRatedNavigationController.tabBarItem.image = UIImage(named: "top-rated")
+        
+        let upcomingNavigationController = storyboard.instantiateViewController(withIdentifier: "movieNavigationController") as! UINavigationController
+        let upcomingViewController = upcomingNavigationController.topViewController as! MoviesViewController
+        upcomingViewController.endPoint = "upcoming"
+        upcomingNavigationController.tabBarItem.title = "Upcoming"
+        upcomingNavigationController.tabBarItem.image = UIImage(named: "upcoming")
+
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController, upcomingNavigationController]
+        
+        tabBarController.tabBar.barStyle = .black 
+        tabBarController.tabBar.barTintColor = UIColor(colorLiteralRed: 0x24/0xFF, green: 0x24/0xFF, blue: 0x23/0xFF, alpha: 1)
+
+        tabBarController.tabBar.tintColor = UIColor(colorLiteralRed: 0xF5/0xFF, green: 0xCB/0xFF, blue: 0x5C/0xFF, alpha: 1)
+
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

@@ -15,6 +15,7 @@
 		CE0BC57F1F684D15003DA62A /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC57E1F684D15003DA62A /* MoviesViewController.swift */; };
 		CE0BC5811F686A5B003DA62A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC5801F686A5B003DA62A /* MovieCell.swift */; };
 		CE0BC5831F68EF2F003DA62A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC5821F68EF2E003DA62A /* DetailsViewController.swift */; };
+		CEBE0D4C1F6B172C00721EEB /* CollectionMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CE0BC57E1F684D15003DA62A /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		CE0BC5801F686A5B003DA62A /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		CE0BC5821F68EF2E003DA62A /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMovieCell.swift; sourceTree = "<group>"; };
 		D149E5B7A0D9403CC840D0EA /* Pods-Flickso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickso/Pods-Flickso.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				CE0BC57E1F684D15003DA62A /* MoviesViewController.swift */,
 				CE0BC5821F68EF2E003DA62A /* DetailsViewController.swift */,
 				CE0BC5801F686A5B003DA62A /* MovieCell.swift */,
+				CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */,
 			);
 			path = Flickso;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				CE0BC5511F684B55003DA62A /* AppDelegate.swift in Sources */,
 				CE0BC57F1F684D15003DA62A /* MoviesViewController.swift in Sources */,
 				CE0BC5811F686A5B003DA62A /* MovieCell.swift in Sources */,
+				CEBE0D4C1F6B172C00721EEB /* CollectionMovieCell.swift in Sources */,
 				CE0BC5831F68EF2F003DA62A /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

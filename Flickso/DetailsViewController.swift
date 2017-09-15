@@ -15,20 +15,21 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    var movie:[String:Any]!
-
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var infoView: UIView!
+    
+    var movie:[String:Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+                
         titleLabel.text = movie["title"] as? String
         
         detailsLabel.text = movie["overview"] as? String
         
         detailsLabel.sizeToFit()
-        
+                
         SVProgressHUD.dismiss()
         
         var posterUrl: URL!
