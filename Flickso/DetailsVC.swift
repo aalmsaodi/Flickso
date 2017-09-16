@@ -26,9 +26,12 @@ class DetailsViewController: UIViewController {
         detailsLabel.text = movie["overview"] as? String
         
         if let path = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500"
-            let posterUrl = URL(string: baseUrl + path)!
-            movieImage.setImageWith(posterUrl)
+
+            let smallBaseUrl = "http://image.tmdb.org/t/p/w45"
+            let largeBaseUrl = "http://image.tmdb.org/t/p/original"
+            
+            movieImage.setImageWithTwoURLS(smallImageURL: smallBaseUrl+path, largeImagURL: largeBaseUrl+path)
+
         }
         
         SVProgressHUD.dismiss()

@@ -138,32 +138,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             movie = movies[indexPath.row]
         }
         
-        var posterUrl: URL!
         if let path = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500/"
             
-            posterUrl = URL(string: baseUrl + path)!
-            let imageRequest = URLRequest(url: posterUrl)
+            let smallBaseUrl = "http://image.tmdb.org/t/p/w45"
+            let largeBaseUrl = "http://image.tmdb.org/t/p/original"
             
-            cell.movieCover.setImageWith(
-                imageRequest,
-                placeholderImage: nil,
-                success: { (imageRequest, imageResponse, image) -> Void in
-                    
-                    // imageResponse will be nil if the image is cached
-                    if imageResponse != nil {
-                        cell.movieCover.alpha = 0.0
-                        cell.movieCover.image = image
-                        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-                            cell.movieCover.alpha = 1.0
-                        })
-                    } else {
-                        cell.movieCover.image = image
-                    }
-            },
-                failure: { (imageRequest, imageResponse, error) -> Void in
-                    // do something for the failure condition
-            })
+            cell.movieCover.setImageWithTwoURLS(smallImageURL: smallBaseUrl+path, largeImagURL: largeBaseUrl+path)
             
         } else {
             cell.movieCover.image = UIImage(named: "movie_no_cover")
@@ -206,32 +186,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let title = movie["title"] as? String
         let synopsis = movie["overview"] as? String
         
-        var posterUrl: URL!
         if let path = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500"
+        
+            let smallBaseUrl = "http://image.tmdb.org/t/p/w45"
+            let largeBaseUrl = "http://image.tmdb.org/t/p/original"
             
-            posterUrl = URL(string: baseUrl + path)!
-            let imageRequest = URLRequest(url: posterUrl)
-            
-            cell.movieImage.setImageWith(
-                imageRequest,
-                placeholderImage: nil,
-                success: { (imageRequest, imageResponse, image) -> Void in
-                    
-                    // imageResponse will be nil if the image is cached
-                    if imageResponse != nil {
-                        cell.movieImage.alpha = 0.0
-                        cell.movieImage.image = image
-                        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-                            cell.movieImage.alpha = 1.0
-                        })
-                    } else {
-                        cell.movieImage.image = image
-                    }
-            },
-                failure: { (imageRequest, imageResponse, error) -> Void in
-                    // do something for the failure condition
-            })
+            cell.movieImage.setImageWithTwoURLS(smallImageURL: smallBaseUrl+path, largeImagURL: largeBaseUrl+path)
         
         } else {
             cell.movieImage.image = UIImage(named: "movie_no_cover")

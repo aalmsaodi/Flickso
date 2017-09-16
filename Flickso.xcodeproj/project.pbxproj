@@ -15,6 +15,7 @@
 		CE0BC57F1F684D15003DA62A /* MoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC57E1F684D15003DA62A /* MoviesVC.swift */; };
 		CE0BC5811F686A5B003DA62A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC5801F686A5B003DA62A /* MovieCell.swift */; };
 		CE0BC5831F68EF2F003DA62A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BC5821F68EF2E003DA62A /* DetailsVC.swift */; };
+		CE25D8AB1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25D8AA1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift */; };
 		CEBE0D4C1F6B172C00721EEB /* CollectionMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */; };
 		CEBE0D4E1F6B8B1500721EEB /* MoviesVC+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE0D4D1F6B8B1500721EEB /* MoviesVC+Configuration.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		CE0BC57E1F684D15003DA62A /* MoviesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesVC.swift; sourceTree = "<group>"; };
 		CE0BC5801F686A5B003DA62A /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		CE0BC5821F68EF2E003DA62A /* DetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		CE25D8AA1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+2Resolutions.swift"; sourceTree = "<group>"; };
 		CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMovieCell.swift; sourceTree = "<group>"; };
 		CEBE0D4D1F6B8B1500721EEB /* MoviesVC+Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoviesVC+Configuration.swift"; sourceTree = "<group>"; };
 		D149E5B7A0D9403CC840D0EA /* Pods-Flickso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickso/Pods-Flickso.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				CE0BC5821F68EF2E003DA62A /* DetailsVC.swift */,
 				CE0BC5801F686A5B003DA62A /* MovieCell.swift */,
 				CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */,
+				CE25D8AA1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift */,
 			);
 			path = Flickso;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				CE0BC5811F686A5B003DA62A /* MovieCell.swift in Sources */,
 				CEBE0D4C1F6B172C00721EEB /* CollectionMovieCell.swift in Sources */,
 				CE0BC5831F68EF2F003DA62A /* DetailsVC.swift in Sources */,
+				CE25D8AB1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
