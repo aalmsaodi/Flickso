@@ -13,6 +13,7 @@ Completed features:
  * [x] Optional: Implement a UISegmentedControl to switch between a list view and a grid view.
  * [x] Optional: Add a search bar.
  * [x] Optional: All images fade in as they are loading.
+ * [x] For the large poster, load the low-res image first and switch to high-res when complete.
  * [x] Optional: Customize the highlight and selection effect of the cell. 
  * [x] Optional: Customize the navigation bar.
  
