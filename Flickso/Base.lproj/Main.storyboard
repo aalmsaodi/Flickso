@@ -71,7 +71,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-k7-oQC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-k7-oQC">
                                                     <rect key="frame" x="5" y="5" width="43" height="64.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6O5-k7-oQC" secondAttribute="height" multiplier="2:3" id="eFl-4z-wek"/>
@@ -267,6 +267,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NC4-0d-XgH"/>
+        <segue reference="dSb-sU-DIZ"/>
     </inferredMetricsTieBreakers>
 </document>
