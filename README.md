@@ -1,8 +1,6 @@
 # Flickso
 This is an iOS app for displaying the latest movies using the The Movie Database API (https://www.themoviedb.org). 
 
-Time spent: 15 hours spent in total
-
 Completed features:
  * [x] Required: User can view a list of movies currently playing in theaters from The Movie Database. Poster images must be loaded asynchronously.
  * [x] Required: User can view movie details by tapping on a cell.

@@ -88,6 +88,7 @@
 		CE0BC54F1F684B55003DA62A /* Flickso */ = {
 			isa = PBXGroup;
 			children = (
+				CEE0C7851FB24DD700E1D8FC /* Extensions */,
 				CE25D8B61F6F86C800E473F4 /* Model */,
 				CE25D8B51F6F781A00E473F4 /* Control */,
 				CE25D8B41F6F780000E473F4 /* View */,
@@ -104,7 +105,6 @@
 				CE0BC5591F684B55003DA62A /* LaunchScreen.storyboard */,
 				CE0BC5801F686A5B003DA62A /* MovieCell.swift */,
 				CEBE0D4B1F6B172C00721EEB /* CollectionMovieCell.swift */,
-				CE25D8AA1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -125,6 +125,14 @@
 				CE25D8B71F6F86E500E473F4 /* Movie.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CEE0C7851FB24DD700E1D8FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE25D8AA1F6DE28C00E473F4 /* UIImageView+2Resolutions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

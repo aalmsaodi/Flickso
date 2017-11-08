@@ -21,7 +21,7 @@ extension UIImageView {
         self.setImageWith(smallImageReq, placeholderImage: nil, success: {
             (request, response, smallImage) in
             
-            if response != nil {
+            if smallImage != nil {
                 
                 self.image = smallImage
                 
